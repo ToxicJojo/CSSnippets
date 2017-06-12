@@ -1,0 +1,19 @@
+{
+  "name": "cssnippets",
+  "version": "0.0.1",
+  "description": "A collection of css snippets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ToxicJojo/CSSnippets.git"
+  },
+  "author": "Johannes Thiel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ToxicJojo/CSSnippets/issues"
+  },
+  "homepage": "https://github.com/ToxicJojo/CSSnippets#readme",
+}
