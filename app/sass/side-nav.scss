@@ -1,0 +1,48 @@
+.side-nav {
+  display: inline-block;
+  padding-left: 20px;
+  width: 15%
+}
+
+@media (min-width: 750px) {
+  .side-nav {
+
+  }
+}
+
+@media (max-width: 749px) {
+  .side-nav {
+    width: 250px;
+    position: fixed;
+    z-index: 5;
+    background-color: lightgray;
+    transition: all ease-out 1s;
+    height: 100vh;
+    transform: translate(-250px, 0px);
+  }
+
+  .side-nav.open {
+    transform: translate(0px, 0px);
+  }
+}
+
+
+.side-nav > ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.side-nav li {
+  padding-bottom: 10px;
+}
+
+.side-nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.side-nav a:hover {
+  text-decoration: none;
+  color: black;
+  border-bottom: 2px solid green;
+}

@@ -1,0 +1,33 @@
+.header {
+  background-color: $primaryColor;
+  min-height: 50px;
+}
+
+.header::before {
+  @extend .vertical-aligner;
+}
+
+.header-brand {
+  padding-left: 20px;
+}
+
+.header-brand .fa {
+  padding-right: 5px;
+  color: white;
+  display: none;
+}
+
+@media (max-width: 749px) {
+  .header-brand .fa {
+    display: inline-block;
+  }
+}
+
+
+.header-brand > a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
