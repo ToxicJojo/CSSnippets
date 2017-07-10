@@ -3,7 +3,7 @@ $mobileSideNavWidth: 200px;
 .side-nav {
   display: inline-block;
   background-color: #EEE;
-  height: 100vh;
+  height: calc(100vh - #{$headerHeight});
 }
 
 

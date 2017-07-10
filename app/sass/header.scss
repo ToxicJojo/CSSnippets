@@ -1,6 +1,6 @@
 .header {
   background-color: $primaryColor;
-  min-height: 50px;
+  min-height: $headerHeight;
 }
 
 .header::before {

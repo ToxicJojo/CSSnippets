@@ -1,4 +1,25 @@
 .content {
   display: inline-block;
-  width: 85%;
+  vertical-align: top;
+  height: calc(100vh - #{$headerHeight});
+}
+
+
+@media (min-width: 750px) {
+  .content {
+    width: 85%;
+  }
+}
+
+@media (max-width: 749px) {
+  .content {
+    width: 100%;
+  }
+}
+
+.loading {
+  position: absolute;
+  width: inherit;
+  text-align: center;
+  top: 50%;
 }

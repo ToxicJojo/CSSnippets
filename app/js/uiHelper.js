@@ -1,6 +1,10 @@
-const toggleClass = (selector, cssClass) => {
+const toggleClass = (selector, cssClass, state) => {
   const element = document.querySelector(selector);
-  element.classList.toggle(cssClass);
+  if (typeof (state) === 'undefined') {
+    element.classList.toggle(cssClass);
+  } else {
+    element.classList.toggle(cssClass, state);
+  }
 };
 
 const addListener = (selector, listenerType, callback) => {
