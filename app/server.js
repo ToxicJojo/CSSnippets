@@ -14,6 +14,14 @@ app.get('/', (req, res) => {
 });
 
 
+app.get('/buttons', (req, res) => {
+  res.render('pages/buttons', { title: 'CSSnippets - Buttons' });
+});
+
+app.get('/header', (req, res) => {
+  res.render('pages/header', { title: 'CSSnippets - Header' });
+});
+
 const server = app.listen(3000, () => {
 });
 
