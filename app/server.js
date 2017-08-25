@@ -22,7 +22,16 @@ app.get('/header', (req, res) => {
   res.render('pages/header', { title: 'CSSnippets - Header' });
 });
 
+app.get('/page/buttons', (req, res) => {
+  res.render('content/buttons', { title: 'CSSnippets - Buttons' });
+});
+
+app.get('/page/header', (req, res) => {
+  res.render('content/header', { title: 'CSSnippets - Header' });
+});
+
 const server = app.listen(3000, () => {
+  console.log('Server running on port 3000');
 });
 
 module.exports = server;
