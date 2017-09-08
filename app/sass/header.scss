@@ -1,6 +1,7 @@
 .header {
   background-color: $primaryColor;
   min-height: $headerHeight;
+  width: 100vw;
 }
 
 .header::before {
@@ -17,9 +18,13 @@
   display: none;
 }
 
-@media (max-width: 749px) {
+@media (max-width: $breakPointMobile) {
   .header-brand .fa {
     display: inline-block;
+  }
+
+  .header {
+    position: fixed;
   }
 }
 

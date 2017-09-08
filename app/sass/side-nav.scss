@@ -7,16 +7,17 @@ $mobileSideNavWidth: 200px;
 }
 
 
-@media (min-width: 750px) {
+@media (min-width: $breakPointDesktop) {
   .side-nav {
     width: 15%;
   }
 }
 
-@media (max-width: 749px) {
+@media (max-width: $breakPointMobile) {
   .side-nav {
     width: $mobileSideNavWidth;
     position: fixed;
+    top: $headerHeight;
     z-index: 5;
     transition: all ease-out 1s;
     transform: translate(-$mobileSideNavWidth, 0px);
@@ -35,6 +36,7 @@ $mobileSideNavWidth: 200px;
   .side-nav-click {
     width: 100%;
     position: fixed;
+    top: $headerHeight;
     z-index: 5;
     height: 100vh;
     transform: translate(-$mobileSideNavWidth, 0px);
