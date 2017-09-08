@@ -1,0 +1,38 @@
+$buttonColor: #0069ff;
+$buttonHoverColor: #005fe6;
+
+a.button {
+  padding: 0px 32px;
+  display: inline-block;
+  transition: 0.5s;
+  height: 48px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 48px;
+  background-color: $buttonColor;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: sans-serif;
+  margin: 5px;
+}
+
+a.button:hover {
+  background-color: $buttonHoverColor;
+}
+
+a.button.inverted {
+  background-color: white;
+
+  border-style: solid;
+  border-width: 2px;
+  border-color: $buttonColor;
+
+  color: $buttonColor;
+}
+
+a.button.inverted:hover {
+  background-color:rgba(0, 0, 0, 0.05);
+}

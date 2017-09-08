@@ -81,6 +81,9 @@ const showPage = async (pageName) => {
   // Replace the old content with the loaded content.
   contentWrapper.replaceChild(template.firstChild, content);
 
+  UI.initTabs();
+  Prism.highlightAll();
+
   // Hide the loading statse.
   UI.toggleClass('.content', 'hidden', false);
   UI.toggleClass('.loading', 'hidden', true);
@@ -100,15 +103,14 @@ UI.addListener('#sideNavClick', 'click', (e) => {
   toggleSideNav();
 });
 
-UI.doForEach('.side-nav a', (element) => {
-  UI.addListener(element, 'click', (e) => {
-    e.preventDefault();
+UI.addListener('.side-nav a', 'click', (e) => {
+  e.preventDefault();
 
-    const page = e.target.dataset.page;
-    showPage(page);
-  });
+  const page = e.target.dataset.page;
+  showPage(page);
 });
 
 // Get the current location and mark the active page in the sidenav.
 const currentPageName = window.location.pathname.split('/')[1];
 markActivePage(currentPageName);
+UI.initTabs();

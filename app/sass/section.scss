@@ -1,0 +1,37 @@
+$headingTextColor: #222;
+
+section {
+  display: block;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+section h1 {
+  color: $headingTextColor;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.samples {
+  width: 65%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.source {
+  display: inline-block;
+  width: 35%;
+}
+
+
+@media (max-width: $breakPointMobile) {
+  // Take up the whole width on mobile
+  .source {
+    width: 100%;
+  }
+
+  .samples {
+    width: 100%;
+  }
+}

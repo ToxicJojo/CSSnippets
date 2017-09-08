@@ -1,0 +1,51 @@
+$backgroundColor: #272822;
+$backgroundColorInActive: #DDD;
+
+.sourceBox {
+  display: block;
+}
+
+ul.tabNav {
+  display: table;
+  table-layout: fixed;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 30px;
+}
+
+ul.tabNav li {
+  display: table-cell;
+  background-color: $backgroundColorInActive;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  vertical-align: middle;
+  text-align: right;
+  font-size: 20px;
+
+  padding-right: 5px;
+
+  cursor: pointer;
+}
+
+ul.tabNav li.active {
+  background-color: $backgroundColor;
+  color: $secondaryColor;
+
+  border-top-style: solid;
+  border-top-width: 3px;
+}
+
+.tabContent {
+  padding-top: 10px;
+  border-top-width: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-style: solid;
+  background-color: $backgroundColor;
+}
