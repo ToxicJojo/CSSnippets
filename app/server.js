@@ -1,4 +1,6 @@
 const express = require('express');
+const buttonsRouter = require('./js/backend/router/buttons');
+const headerRouter = require('./js/backend/router/header');
 
 const app = express();
 
@@ -14,21 +16,9 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/buttons', (req, res) => {
-  res.render('pages/buttons', { title: 'CSSnippets - Buttons' });
-});
+app.use('/buttons', buttonsRouter);
 
-app.get('/header', (req, res) => {
-  res.render('pages/header', { title: 'CSSnippets - Header' });
-});
-
-app.get('/page/buttons', (req, res) => {
-  res.render('content/buttons', { title: 'CSSnippets - Buttons' });
-});
-
-app.get('/page/header', (req, res) => {
-  res.render('content/header', { title: 'CSSnippets - Header' });
-});
+app.use('/header', headerRouter);
 
 const server = app.listen(3000, () => {
   console.log('Server running on port 3000');

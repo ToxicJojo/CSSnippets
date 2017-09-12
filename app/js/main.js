@@ -70,7 +70,7 @@ const showPage = async (pageName) => {
   markActivePage(pageName);
 
   // Load the html for the requested page.
-  const pageContent = await getPageContent(`page/${pageName}`);
+  const pageContent = await getPageContent(`${pageName}/content`);
 
   // Create a new element to insert.
   const template = document.createElement('div');

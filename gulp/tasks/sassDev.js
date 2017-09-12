@@ -15,6 +15,10 @@ module.exports = () => {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('public/css'));
 
+  gulp.src('app/sass/snippets/**/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('public/css/intern'));
+
   /* We want to scope the css snippets. To do this we add put the wohle scss
     in a .$filename class. This way the css will be scoped to only apply to
     elements that are inside a parent with the .filename class.

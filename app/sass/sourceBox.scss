@@ -39,6 +39,8 @@ ul.tabNav li.active {
 }
 
 .tabContent {
+  max-height: 300px;
+  overflow: auto;
   padding-top: 10px;
   border-top-width: 0px;
   border-left-width: 1px;

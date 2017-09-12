@@ -1,0 +1,35 @@
+$buttonColor: #FE5F55;
+$buttonHoverColor: #e53935;
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  background-color: $buttonColor;
+  margin: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  min-width: 9em;
+  text-align: center;
+
+  color: white;
+
+  line-height: 45px;
+  font-size: 18px;
+
+  transition: 0.5s;
+}
+
+.button:hover {
+  background-color: $buttonHoverColor;
+}
+
+.button.inverted {
+  color: $buttonColor;
+  background-color: #DDD;
+}
+
+.button.inverted:hover {
+  background-color: $buttonHoverColor;
+  color: white;
+}
