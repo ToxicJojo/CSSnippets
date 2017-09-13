@@ -1,3 +1,6 @@
+@import '../variables';
+
+
 $buttonColor: #FE5F55;
 $buttonHoverColor: #e53935;
 
@@ -20,16 +23,26 @@ $buttonHoverColor: #e53935;
   transition: 0.5s;
 }
 
-.button:hover {
-  background-color: $buttonHoverColor;
+@mixin color($name, $color, $hoverColor) {
+  a.button.#{$name} {
+    background-color: $color;
+
+    &:hover {
+      background-color: $hoverColor;
+    }
+  }
+
+  a.button.#{$name}.inverted {
+    color: $color;
+    background-color: rgba(0, 0, 0, 0.05);
+
+    &:hover {
+      background-color: $hoverColor;
+      color: white;
+    }
+  }
 }
 
-.button.inverted {
-  color: $buttonColor;
-  background-color: #DDD;
-}
-
-.button.inverted:hover {
-  background-color: $buttonHoverColor;
-  color: white;
+@each $colorName, $color in $colors {
+  @include color($colorName, map-get($color, normal), map-get($color, dark));
 }

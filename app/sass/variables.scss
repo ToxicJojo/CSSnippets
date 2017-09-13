@@ -1,6 +1,31 @@
 $primaryColor: #03a9f4;
 $secondaryColor: #e53935;
 
+$colors: (
+  blue: (
+    normal: #0069ff,
+    dark: #005fe6
+    ),
+  red: (
+    normal: #d32f2f,
+    dark: #b71c1c,
+  ),
+  orange: (
+    normal: #ef6c00,
+    dark: #e65100,
+  ),
+  teal: (
+    normal: #00bfa5,
+    dark: #008e76,
+  ),
+  purple: (
+    normal: #d500f9,
+    dark: #9e00c5,
+  ),
+);
+
+
+
 
 $headerHeight: 50px;
 $footerHeight: 250px;

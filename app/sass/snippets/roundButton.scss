@@ -1,5 +1,4 @@
-$buttonColor: #0069ff;
-$buttonHoverColor: #005fe6;
+@import '../variables';
 
 a.button {
   padding: 0px 32px;
@@ -9,7 +8,6 @@ a.button {
   vertical-align: middle;
   text-align: center;
   line-height: 48px;
-  background-color: $buttonColor;
   color: white;
   border-radius: 50px;
   text-decoration: none;
@@ -17,22 +15,34 @@ a.button {
   font-size: 16px;
   font-family: sans-serif;
   margin: 5px;
-}
-
-a.button:hover {
-  background-color: $buttonHoverColor;
+  min-width: 15em;
 }
 
 a.button.inverted {
-  background-color: white;
-
   border-style: solid;
   border-width: 2px;
-  border-color: $buttonColor;
-
-  color: $buttonColor;
 }
 
-a.button.inverted:hover {
-  background-color:rgba(0, 0, 0, 0.05);
+@mixin color($name, $color, $hoverColor) {
+    a.button.#{$name} {
+      background-color: $color;
+
+      &:hover {
+        background-color: $hoverColor;
+      }
+    }
+
+    a.button.#{$name}.inverted {
+      border-color: $color;
+      color: $color;
+      background-color: white;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+}
+
+@each $colorName, $color in $colors {
+  @include color($colorName, map-get($color, normal), map-get($color, dark));
 }
