@@ -3,6 +3,13 @@ $backgroundColorInActive: #DDD;
 
 .sourceBox {
   display: block;
+  overflow: hidden;
+  height: 0px;
+  transition: 1s;
+}
+
+.sourceBox.shown {
+  height: 330px;
 }
 
 ul.tabNav {

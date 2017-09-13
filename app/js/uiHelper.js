@@ -51,7 +51,20 @@ const initTabs = () => {
   });
 };
 
+const initSourceToggle = () => {
+  addListener('i.fa.fa-code', 'click', (e) => {
+    e.preventDefault();
+
+    const element = e.target;
+
+    const toggleTarget = element.dataset.toggleTarget;
+
+    toggleClass(`.sourceBox[data-toggle-name="${toggleTarget}"]`, 'shown');
+  });
+};
+
 module.exports.toggleClass = toggleClass;
 module.exports.addListener = addListener;
 module.exports.doForEach = doForEach;
 module.exports.initTabs = initTabs;
+module.exports.initSourceToggle = initSourceToggle;

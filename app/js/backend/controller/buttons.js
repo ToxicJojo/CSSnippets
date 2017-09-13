@@ -13,6 +13,9 @@ const getParams = async () => {
   params.scss.flatButton = await scssLoader.loadScss('flatButton');
   params.css.flatButton = await scssLoader.loadCss('flatButton');
 
+  params.scss.simpleButton = await scssLoader.loadScss('simpleButton');
+  params.css.simpleButton = await scssLoader.loadCss('simpleButton');
+
   return params;
 };
 

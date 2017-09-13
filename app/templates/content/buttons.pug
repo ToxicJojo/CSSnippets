@@ -2,16 +2,17 @@
   
   link(rel='stylesheet' href='css/snippets/roundButton.css')
   link(rel='stylesheet' href='css/snippets/flatButton.css')
-  script(src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js")
-  section
-    h1 Round buttons
-    .roundButton.samples
-      p Simple round buttons with a hover effect.
-      a.button(href='#') Round Button
-      a.button.inverted(href='#') Inverted Button
-
-    .source
-      .sourceBox
+  link(rel='stylesheet' href='css/snippets/simpleButton.css')
+  main
+    section
+      h1#roundButton Round buttons
+        i.fa.fa-code(data-toggle-target='roundButton')
+      .roundButton
+        p Simple round buttons with a hover effect.
+        .samples
+          a.button(href='#') Round Button
+          a.button.inverted(href='#') Inverted Button
+      .sourceBox(data-toggle-name='roundButton')
         ul.tabNav
           li.active(data-tab-type='css' data-tab-group='roundButton') .css
           li(data-tab-type='scss' data-tab-group='roundButton') .scss
@@ -20,23 +21,48 @@
             code.language-css= css.roundButton
         .tabContent.hidden(data-tab-group='roundButton' data-tab-type='scss')
           pre
-            code.language-scss= scss.roundButton
-              
-          
-  section
-      h1 Flat buttons
-      .flatButton.samples
-        a.button(href='#') Flat Button
-        a.button.inverted(href='#') Inverted Button
-      .source
-        .sourceBox
-          ul.tabNav
-            li.active(data-tab-type='css' data-tab-group='flatButton') .css
-            li(data-tab-type='scss' data-tab-group='flatButton') .scss
-          .tabContent(data-tab-group='flatButton' data-tab-type='css')
-            pre
-              code.language-css= css.flatButton
-          .tabContent.hidden(data-tab-group='flatButton' data-tab-type='scss')
-            pre
-              code.language-scss= scss.flatButton
+            code.language-scss= scss.roundButton              
+                
             
+    section
+        h1#flatButton Flat buttons
+          i.fa.fa-code(data-toggle-target='flatButton')
+        .flatButton.samples
+          a.button(href='#') Flat Button
+          a.button.inverted(href='#') Inverted Button
+        .source
+          .sourceBox(data-toggle-name='flatButton')
+            ul.tabNav
+              li.active(data-tab-type='css' data-tab-group='flatButton') .css
+              li(data-tab-type='scss' data-tab-group='flatButton') .scss
+            .tabContent(data-tab-group='flatButton' data-tab-type='css')
+              pre
+                code.language-css= css.flatButton
+            .tabContent.hidden(data-tab-group='flatButton' data-tab-type='scss')
+              pre
+                code.language-scss= scss.flatButton
+              
+    section
+      h1#simpleButton Simple buttons
+        i.fa.fa-code(data-toggle-target='simpleButton')
+      .simpleButton.samples
+        a.button(href='#') Simple Button
+      .source
+        .sourceBox(data-toggle-name='simpleButton')
+          ul.tabNav
+            li.active(data-tab-type='css' data-tab-group='simpleButton') .css
+            li(data-tab-type='scss' data-tab-group='simpleButton') .scss
+          .tabContent(data-tab-group='simpleButton' data-tab-type='css')
+            pre
+              code.language-css= css.simpleButton
+          .tabContent.hidden(data-tab-group='simpleButton' data-tab-type='scss')
+            pre
+              code.language-scss= scss.simpleButton
+  nav.content-nav
+    ul
+      li 
+        a(href='#roundButton') Round Button
+      li 
+        a(href='#flatButton') Flat Button
+      li 
+        a(href='#simpleButton') Simple Button

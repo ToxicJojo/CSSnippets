@@ -1,0 +1,37 @@
+nav.content-nav {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  padding-top: 20px;
+  width: 35%;
+  height: calc(100vh - #{$headerHeight} - 40px);
+  border-left: 1px solid rgba(34,36,38,.15);
+}
+
+@media (max-width: $breakPointMobile) {
+  // Hide the content nav on mobile.
+  nav.content-nav {
+    display: none;
+  }
+}
+
+nav.content-nav > ul {
+  list-style: none;
+  padding: 0px;
+}
+
+nav.content-nav li {
+  padding-left: 30px;
+  padding-bottom: 5px;
+}
+
+nav.content-nav li > a {
+  text-decoration: none;
+  color: rgba(0,0,0,.5);
+}
+
+nav.content-nav li > a:hover {
+  color: rgba(0,0,0,.85);
+}
