@@ -1,4 +1,35 @@
 footer {
   background-color: $secondaryColor;
   height: $footerHeight;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+footer ul li {
+  padding-right: 15px;
+  padding-top: 10px;
+  display: inline-block;
+}
+
+footer ul li a{
+  text-decoration: none;
+  color: #111;
+
+  &:hover {
+    color: #222;
+    text-decoration: underline;
+  }
+}
+
+.copyright {
+  display: inline-block;
+  padding-right: 20px;
+  margin-top: 30px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.65);
 }

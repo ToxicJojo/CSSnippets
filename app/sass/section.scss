@@ -3,6 +3,7 @@ $headingTextColor: #222;
 main {
   width: 65%;
   display: inline-block;
+  padding-top: 20px;
 }
 
 @media (max-width: $breakPointMobile) {
@@ -28,6 +29,11 @@ section h1 {
 section h1 i {
   float: right;
   cursor: pointer;
+}
+
+section h1.anchor {
+  margin-top: -$headerHeight;
+  padding-top: $headerHeight;
 }
 
 .samples {
