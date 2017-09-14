@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/ToxicJojo/CSSnippets.git"
   },
+  "engines": {
+    "node": ">= 7.6.0"
+  },
   "author": "Johannes Thiel",
   "license": "MIT",
   "bugs": {
