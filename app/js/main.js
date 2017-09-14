@@ -82,6 +82,7 @@ const showPage = async (pageName) => {
   contentWrapper.replaceChild(template.firstChild, content);
 
   UI.initTabs();
+  UI.initSourceToggle();
   Prism.highlightAll();
 
   // Hide the loading statse.
