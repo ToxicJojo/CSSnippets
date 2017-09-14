@@ -1,6 +1,8 @@
 $mobileSideNavWidth: 200px;
 
 nav.side-nav {
+  position: sticky;
+  top: $headerHeight;
   display: inline-block;
   background-color: #EEE;
   height: calc(100vh - #{$headerHeight});
@@ -14,7 +16,7 @@ nav.side-nav {
 }
 
 @media (max-width: $breakPointMobile) {
-  .side-nav {
+  nav.side-nav {
     width: $mobileSideNavWidth;
     position: fixed;
     top: $headerHeight;

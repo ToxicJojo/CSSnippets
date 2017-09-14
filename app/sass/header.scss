@@ -1,7 +1,9 @@
 .header {
   background-color: $primaryColor;
   min-height: $headerHeight;
-  width: 100vw;
+  width: 100%;
+  position: sticky;
+  top: 0px;
 }
 
 .header::before {
