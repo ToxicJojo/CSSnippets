@@ -1,5 +1,7 @@
 const UI = require('./uiHelper');
 
+UI.registerServiceWorker();
+
 /**
  * Toggles the state of the side nav. The nav can be eighter hidden or
  * visible.

@@ -63,8 +63,35 @@ const initSourceToggle = () => {
   });
 };
 
+const registerServiceWorker = () => {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', async () => {
+      const reg = await navigator.serviceWorker.register('/service-worker.js');
+      reg.onupdatefound = () => {
+        const installingWorker = reg.installing;
+
+        installingWorker.onstatechange = () => {
+          switch (installingWorker.state) {
+            case 'installed':
+              if (navigator.serviceWorker.controller) {
+                console.log('New or updated content is available.');
+              } else {
+                console.log('Content is now available offline!');
+              }
+              break;
+            case 'redundant':
+              console.error('The installing service worker became redundant.');
+              break;
+          }
+        };
+      };
+    });
+  }
+};
+
 module.exports.toggleClass = toggleClass;
 module.exports.addListener = addListener;
 module.exports.doForEach = doForEach;
 module.exports.initTabs = initTabs;
 module.exports.initSourceToggle = initSourceToggle;
+module.exports.registerServiceWorker = registerServiceWorker;
