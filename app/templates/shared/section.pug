@@ -1,0 +1,17 @@
+section
+  h1.anchor(id=sectionName)= sectionName
+    i.fa.fa-code(data-toggle-target=sectionName)
+    div(class=sectionName)
+      p Section description
+      .samples
+        | A lot of samples
+      .sourceBox(data-toggle-name=sectionName)
+        ul.tabNav
+          li.active(data-tab-type='css' data-tab-group=sectionName) .css
+          li(data-tab-type='scss' data-tab-group=sectionName) .scss
+        .tabContent(data-tab-type='css' data-tab-group=sectionName)
+          pre
+            code.language-css
+        .tabContent.hidden(data-tab-type='scss' data-tab-group=sectionName)
+          pre
+            code.language-scss
