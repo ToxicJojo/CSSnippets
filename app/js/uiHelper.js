@@ -20,6 +20,19 @@ const toggleClass = (selector, cssClass, state) => {
   });
 };
 
+const hasClass = (selector, cssClass) => {
+  const elements = getElementForSelector(selector);
+
+  let response = true;
+
+  elements.forEach((element) => {
+    if (!element.classList.contains(cssClass)) {
+      response = false;
+    }
+  });
+  return response;
+};
+
 const addListener = (selector, listenerType, callback) => {
   const elements = getElementForSelector(selector);
 
@@ -32,6 +45,16 @@ const doForEach = (selector, action) => {
   const elements = getElementForSelector(selector);
 
   elements.forEach(action);
+};
+
+const scrollTo = (selector) => {
+  const elements = getElementForSelector(selector);
+
+  elements.forEach((element) => {
+    element.scrollIntoView({
+      behavior: 'smooth',
+    });
+  });
 };
 
 
@@ -60,6 +83,9 @@ const initSourceToggle = () => {
     const toggleTarget = element.dataset.toggleTarget;
 
     toggleClass(`.sourceBox[data-toggle-name="${toggleTarget}"]`, 'shown');
+    if (hasClass(`.sourceBox[data-toggle-name="${toggleTarget}"]`, 'shown')) {
+      scrollTo(`.sourceBox[data-toggle-name="${toggleTarget}"]`);
+    }
   });
 };
 
