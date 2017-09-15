@@ -63,3 +63,18 @@ ul.tabNav li.active {
   border-style: solid;
   background-color: $backgroundColor;
 }
+
+@media (min-width: $breakPointDesktop) {
+  .tabContent::-webkit-scrollbar {
+    width: 12px;
+    margin-right: 2px;
+    background-color: $backgroundColor;
+  }
+
+  .tabContent::-webkit-scrollbar-thumb {
+    background-color: $secondaryColor;
+    height: 5em;
+
+    border-radius: 5px;
+  }
+}
