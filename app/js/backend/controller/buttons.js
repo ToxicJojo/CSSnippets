@@ -1,5 +1,8 @@
 const buttonsView = require('./../view/buttons');
 const scssLoader = require('./../scssLoader');
+const util = require('../util');
+
+const pageName = 'buttons';
 
 const getParams = async () => {
   const params = {
@@ -7,14 +10,14 @@ const getParams = async () => {
     scss: {},
   };
 
-  params.scss.roundButton = await scssLoader.loadScss('roundButton');
-  params.css.roundButton = await scssLoader.loadCss('roundButton');
+  const config = await util.getPageConfig(pageName);
 
-  params.scss.flatButton = await scssLoader.loadScss('flatButton');
-  params.css.flatButton = await scssLoader.loadCss('flatButton');
+  await Promise.all(config.sections.map(async (section) => {
+    params.scss[section.name] = await scssLoader.loadScss(section.name);
+    params.css[section.name] = await scssLoader.loadCss(section.name);
+  }));
 
-  params.scss.simpleButton = await scssLoader.loadScss('simpleButton');
-  params.css.simpleButton = await scssLoader.loadCss('simpleButton');
+  params.config = config;
 
   return params;
 };

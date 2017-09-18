@@ -1,17 +1,17 @@
 section
-  h1.anchor(id=sectionName)= sectionName
-    i.fa.fa-code(data-toggle-target=sectionName)
-    div(class=sectionName)
-      p Section description
-      .samples
-        | A lot of samples
-      .sourceBox(data-toggle-name=sectionName)
-        ul.tabNav
-          li.active(data-tab-type='css' data-tab-group=sectionName) .css
-          li(data-tab-type='scss' data-tab-group=sectionName) .scss
-        .tabContent(data-tab-type='css' data-tab-group=sectionName)
-          pre
-            code.language-css
-        .tabContent.hidden(data-tab-type='scss' data-tab-group=sectionName)
-          pre
-            code.language-scss
+  h1.anchor(id=section.name)= section.title
+    i.fa.fa-code(data-toggle-target=section.name)
+  div(class=section.name)
+    block description  
+    .samples
+      block samples
+    .sourceBox(data-toggle-name=section.name)
+      ul.tabNav
+        li.active(data-tab-type='css' data-tab-group=section.name) .css
+        li(data-tab-type='scss' data-tab-group=section.name) .scss
+      .tabContent(data-tab-type='css' data-tab-group=section.name)
+        pre
+          code.language-css= css[section.name]
+      .tabContent.hidden(data-tab-type='scss' data-tab-group=section.name)
+        pre
+          code.language-scss= scss[section.name]
