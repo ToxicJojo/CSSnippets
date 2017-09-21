@@ -35,6 +35,7 @@ const getPageConfig = async (pageName) => {
 
   const config = JSON.parse(configText);
 
+  // This function is used to get the section info inside a pug template.
   config.getSectionFromName = (sectionName) => {
     let result;
 
