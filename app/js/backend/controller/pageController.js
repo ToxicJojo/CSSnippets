@@ -1,6 +1,10 @@
 const scssLoader = require('./../scssLoader');
 const util = require('../util');
 
+/**
+ * Loads the parameter for a page to be displayed.
+ * @param {String} pageName The name of the page the parameter will be loaded for.
+*/
 const getParams = async (pageName) => {
   const params = {
     css: {},
@@ -8,7 +12,7 @@ const getParams = async (pageName) => {
   };
 
   const config = await util.getPageConfig(pageName);
-
+  // Load the css and scss files for the sections.
   await Promise.all(config.sections.map(async (section) => {
     params.scss[section.name] = await scssLoader.loadScss(section.name);
     params.css[section.name] = await scssLoader.loadCss(section.name);
@@ -22,26 +26,25 @@ const getParams = async (pageName) => {
   return params;
 };
 
-const show = async (request, response, next) => {
+
+const showPageOrContent = async (type, request, response, next) => {
   const pageName = request.params.page;
-  console.log(pageName);
+
+  // Check if the requested page exists.
   if (await util.pageExists(pageName)) {
     const params = await getParams(pageName);
-    response.render(`pages/${pageName}`, params);
+    response.render(`${type}/${pageName}`, params);
   } else {
     next();
   }
 };
 
-const showContent = async (request, response, next) => {
-  const pageName = request.params.page;
+const show = async (request, response, next) => {
+  showPageOrContent('page', request, response, next);
+};
 
-  if (await util.pageExists(pageName)) {
-    const params = await getParams(pageName);
-    response.render(`content/${pageName}`, params);
-  } else {
-    next();
-  }
+const showContent = async (request, response, next) => {
+  showPageOrContent('content', request, response, next);
 };
 
 module.exports.show = show;
