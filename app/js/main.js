@@ -113,8 +113,5 @@ UI.addListener('.side-nav a', 'click', (e) => {
   showPage(page);
 });
 
-// Get the current location and mark the active page in the sidenav.
-const currentPageName = window.location.pathname.split('/')[1];
-markActivePage(currentPageName);
 UI.initTabs();
 UI.initSourceToggle();

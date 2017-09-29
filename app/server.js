@@ -1,6 +1,7 @@
 const express = require('express');
 const buttonsRouter = require('./js/backend/router/buttons');
 const headerRouter = require('./js/backend/router/header');
+const pageController = require('./js/backend/controller/pageController');
 
 const app = express();
 
@@ -11,15 +12,21 @@ app.use(express.static('public'));
 app.set('views', 'app/templates');
 app.set('view engine', 'pug');
 
-
+/*
 app.get('/', (req, res) => {
   res.render('pages/index', { title: 'CSSnippets' });
 });
+*/
 
+app.get('/:page', pageController.show);
 
+app.get('/:page/content', pageController.showContent);
+
+/*
 app.use('/buttons', buttonsRouter);
 
 app.use('/header', headerRouter);
+*/
 
 const server = app.listen(port, () => {
   console.log(`Server running on port ${port}`);

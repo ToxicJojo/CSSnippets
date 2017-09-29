@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 const basePathConfig = 'app/config/pages/';
 
@@ -10,6 +11,17 @@ const readFileAsync = (path) => {
       } else {
         resolve(data);
       }
+    });
+  });
+};
+
+const readDirAsync = (path) => {
+  return new Promise((resolve, reject) => {
+    fs.readdir(path, (err, files) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(files);
     });
   });
 };
@@ -57,8 +69,27 @@ const savePageConfig = async (pageName, config) => {
   await writeFileAsync(`${basePathConfig}${pageName}.json`, configText);
 };
 
+const getPageList = async () => {
+  const files = await readDirAsync(basePathConfig);
+
+  const pages = files.map((fileName) => {
+    return path.basename(fileName, '.json');
+  });
+
+  return pages;
+};
+
+const pageExists = async (pageName) => {
+  const pageList = await getPageList();
+
+  return pageList.includes(pageName);
+};
+
+
 module.exports.readFileAsync = readFileAsync;
 module.exports.writeFileAsync = writeFileAsync;
 module.exports.getProjectDir = getProjectDir;
 module.exports.getPageConfig = getPageConfig;
 module.exports.savePageConfig = savePageConfig;
+module.exports.getPageList = getPageList;
+module.exports.pageExists = pageExists;

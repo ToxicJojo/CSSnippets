@@ -1,0 +1,8 @@
+.content
+  each section in config.sections
+    link(rel='stylesheet' href=`css/snippets/${section.name}.css`)
+
+  main
+    block content
+
+  include ../shared/contentNav.pug

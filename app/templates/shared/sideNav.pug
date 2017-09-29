@@ -1,7 +1,11 @@
 nav.side-nav
   ul
-    li 
-      a(href='/buttons' data-page='buttons') Buttons
-    li
-      a(href='/header' data-page='header') Header
+    -  function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); };
+    each page in pages
+      li 
+        if (page == activePage)
+          a.active(href=`/${page}` data-page=page)=capitalize(page)
+        else
+          a(href=`/${page}` data-page=page)=capitalize(page)
+
 .side-nav-click#sideNavClick
