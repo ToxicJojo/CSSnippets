@@ -9,7 +9,6 @@ module.exports = () => {
     stripPrefix: rootDir,
     dynamicUrlToDependencies: {
       '/buttons': ['app/templates/application.pug', 'app/templates/content/buttons.pug'],
-      '/header': ['app/templates/application.pug', 'app/templates/pages/header.pug'],
       '/': ['app/templates/application.pug', 'app/templates/pages/index.pug'],
     },
     runtimeCaching: [{

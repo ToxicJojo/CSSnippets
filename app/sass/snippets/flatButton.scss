@@ -23,6 +23,10 @@ $buttonHoverColor: #e53935;
   transition: 0.5s;
 }
 
+.iconButton.star::after {
+  content: 'star';
+}
+
 @mixin color($name, $color, $hoverColor) {
   a.button.#{$name} {
     background-color: $color;

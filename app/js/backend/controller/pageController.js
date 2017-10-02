@@ -40,7 +40,7 @@ const showPageOrContent = async (type, request, response, next) => {
 };
 
 const show = async (request, response, next) => {
-  showPageOrContent('page', request, response, next);
+  showPageOrContent('pages', request, response, next);
 };
 
 const showContent = async (request, response, next) => {

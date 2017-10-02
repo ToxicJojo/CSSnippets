@@ -1,0 +1,92 @@
+@import '../variables';
+
+.iconButton {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+
+  margin: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  min-width: 9em;
+
+  line-height: 40px;
+  font-size: 18px;
+
+  transition: 0.5s;
+}
+
+.iconButton.noText {
+  min-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  vertical-align: top;
+}
+
+.iconButton::after {
+  font-family: 'FontAwesome';
+  float: right;
+  margin-right: -15px;
+  margin-left: 10px;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.iconButton.noText::after {
+  margin-left: 0px;
+  margin-right: 0px;
+  transition: 0.5s;
+}
+
+.star::after {
+  @extend .iconButton::after;
+  content: '\f005';
+}
+
+.thumps-up::after {
+  @extend .iconButton::after;
+  content: '\f164';
+}
+
+.share::after {
+  @extend .iconButton::after;
+  content: '\f064';
+}
+
+.bookmark::after {
+  @extend .iconButton::after;
+  content: '\f02e';
+}
+
+.wrench::after {
+  @extend .iconButton::after;
+  content: '\f0ad';
+}
+
+@mixin color($name, $color, $hoverColor) {
+  a.iconButton.#{$name} {
+    background-color: $color;
+
+    &:hover {
+      background-color: $hoverColor;
+    }
+
+    &::after {
+      background-color: $hoverColor;
+    }
+
+    &.noText::after {
+      background-color: $color;
+    }
+
+    &.noText:hover::after {
+      background-color: $hoverColor;
+    }
+
+  }
+}
+
+@each $colorName, $color in $colors {
+  @include color($colorName, map-get($color, normal), map-get($color, dark));
+}
