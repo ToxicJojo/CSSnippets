@@ -1,0 +1,34 @@
+extends ../shared/section.pug
+
+block description
+  p Description
+  
+block samples
+  form.teal
+    fieldset
+      .row
+        label Name
+        input(type='text' placeholder='John Doe')
+      .row
+        label Website 
+        input(type='url' placeholder='www.example.com')
+      .row
+        label Phone
+        input(type='tel' placeholder='+49 123 123')
+      .row
+        label Country
+        select
+          option Germany
+          option USA
+          option Sweden
+          
+    fieldset
+      .row
+        label E-Mail
+        input(type='email' placeholder='example@example.com')
+      .row
+        label Password
+        input(type='password' placeholder='Password')
+      .row
+        label.checkbox(for='newsletter') Newsletter
+        input#newsletter(type='checkbox')
