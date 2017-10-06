@@ -1,6 +1,7 @@
 const scssLoader = require('./../scssLoader');
 const util = require('../util');
 
+const colors = ['red', 'blue', 'orange', 'purple', 'teal'];
 /**
  * Loads the parameter for a page to be displayed.
  * @param {String} pageName The name of the page the parameter will be loaded for.
@@ -19,6 +20,8 @@ const getParams = async (pageName) => {
   }));
 
   params.config = config;
+
+  params.colors = colors;
 
   params.pages = await util.getPageList();
   params.activePage = pageName;
