@@ -1,0 +1,15 @@
+extends ../shared/section.pug
+
+block description
+  p Description
+  
+block samples
+  for color in colors
+    form(class=color) 
+      .row
+        input(type='text' placeholder='John Doe')
+        label Name
+      .row
+        input(type='url' placeholder='www.example.com')
+        label Website
+        small.helperText Your personal or company website.

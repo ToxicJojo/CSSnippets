@@ -1,0 +1,58 @@
+@import '../variables';
+
+
+form {
+  margin: 20px;
+  padding: 10px 20px;
+  box-shadow    : 0 7px 14px rgba(50,50,93,.1),
+                  0 3px 6px rgba(0,0,0,.08);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+
+input + label {
+  position: absolute;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.4);
+  transition: 0.25s;
+  transform-origin: 0;
+  pointer-events: none;
+}
+
+input:not(:placeholder-shown) + label {
+  transform: scale(0.8) translateY(-25px);
+}
+
+input:focus + label {
+  transform: scale(0.8) translateY(-25px);
+  color: $primaryColor;
+}
+
+input {
+  padding-bottom: 8px;
+  width: 100%;
+  border-style: none;
+  border-bottom: 1px solid;
+  outline: none;
+  background-color: transparent;
+}
+
+input:focus {
+  border-bottom-width: 2px;
+  border-bottom-color: $primaryColor;
+}
+
+input:not(:focus)::-webkit-input-placeholder {
+  color : rgba(255, 255, 255, 0.45);
+  visibility: hidden;
+}
+
+small.helperText {
+  padding-top: 8px;
+  color: rgba(0, 0, 0, 0.55);
+}
