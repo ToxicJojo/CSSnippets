@@ -81,6 +81,19 @@ input[type='checkbox']:checked::after {
  content: '\f00c';
 }
 
+button {
+  width: 100%;
+  border-radius: 4px;
+  border-style: none;
+  line-height: 1.25;
+  font-size: 19px;
+  padding: 10px 10px;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 6px 9px rgba(50,50,93,.06), 0 2px 5px rgba(0,0,0,.08);
+}
+
 
 @mixin color($name, $lightColor, $darkColor) {
   form.#{$name} {
@@ -98,9 +111,14 @@ input[type='checkbox']:checked::after {
       background-color: $darkColor;
     }
 
+    button {
+      background-color: $lightColor;
+
+      &:active {
+        background: $darkColor;
+      }
+    }
   }
-
-
 }
 
 
