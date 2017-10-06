@@ -1,127 +1,131 @@
-@import '../variables';
+@import "../variables";
 
-form {
-  display: inline-block;
-  margin: 10px;
-  padding: 20px 30px;
-  border-radius: 4px;
-  box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
-}
-
-fieldset {
-  border-style: none;
-  border-radius: 4px;
-  padding: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 6px 9px rgba(50,50,93,.06), 0 2px 5px rgba(0,0,0,.08);
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  margin-left: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.row:last-child {
-  border-bottom: none;
-}
-
-label {
-  padding: 10px 0px;
-  min-width: 80px;
-  text-align: left;
-  font-size: 15px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-input {
-  padding: 10px 10px 10px 5px;
-  background-color: transparent;
-  border-style: none;
-  outline: none;
-  color: #fff;
-}
-
-select {
-  padding: 10px 10px 10px 5px;
-  background-color: transparent;
-  outline: none;
-  color: rgba(255, 255, 255, 0.8);
-  border-style: none;
-  width: 100%;
-}
-
-input::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.45);
-}
-
-
-input[type='checkbox'] {
-  -webkit-appearance: none;
-  margin: 0px;
-  height: 0px;
-}
-
-input[type='checkbox']::after {
-  content: ' ';
-  font-family: 'FontAwesome';
-  display: inline-block;
-  border-radius: 2px;
-  background-color: black;
-  width: 15px;
-  height: 15px;
-  padding: 1px;
-}
-
-input[type='checkbox']:checked::after {
- content: '\f00c';
-}
-
-button {
-  width: 100%;
-  border-radius: 4px;
-  border-style: none;
-  line-height: 1.25;
-  font-size: 19px;
-  padding: 10px 10px;
-  color: white;
-  outline: none;
-  cursor: pointer;
-  box-shadow: 0 6px 9px rgba(50,50,93,.06), 0 2px 5px rgba(0,0,0,.08);
-}
-
-
+// Mixin for different color styles.
 @mixin color($name, $lightColor, $darkColor) {
   form.#{$name} {
-    background-color: $darkColor;
+    background-color : $darkColor;
 
     fieldset {
-      background-color: $lightColor;
+      background-color : $lightColor;
     }
 
     option {
-      background-color: $lightColor;
+      background-color : $lightColor;
     }
 
     input[type='checkbox']::after {
-      background-color: $darkColor;
+      background-color : $darkColor;
     }
 
     button {
-      background-color: $lightColor;
+      background-color : $lightColor;
 
       &:active {
-        background: $darkColor;
+        background : $darkColor;
       }
     }
   }
 }
 
+form {
+  display       : inline-block;
+  margin        : 10px;
+  padding       : 20px 30px;
+  border-radius : 4px;
+  box-shadow    : 0 7px 14px rgba(50,50,93,.1),
+                  0 3px 6px rgba(0,0,0,.08);
+}
 
-@each $colorName, $color in $colors {
+fieldset {
+  margin-right  : 10px;
+  margin-bottom : 20px;
+  margin-left   : 10px;
+  padding       : 0px;
+  border-style  : none;
+  border-radius : 4px;
+  box-shadow    : 0 6px 9px rgba(50,50,93,.06),
+                  0 2px 5px rgba(0,0,0,.08);
+}
+
+.row {
+  display        : flex;
+  margin-left    : 15px;
+  border-bottom  : 1px solid rgba(255, 255, 255, 0.2);
+  flex-direction : row;
+}
+
+.row:last-child {
+  border-bottom : none;
+}
+
+label {
+  min-width   : 80px;
+  padding     : 10px 0px;
+  color       : rgba(255, 255, 255, 0.8);
+  text-align  : left;
+  font-size   : 15px;
+  font-weight : 400;
+}
+
+input {
+  padding          : 10px 10px 10px 5px;
+  color            : #fff;
+  border-style     : none;
+  background-color : transparent;
+  outline          : none;
+}
+
+select {
+  width            : 100%;
+  padding          : 10px 10px 10px 5px;
+  color            : rgba(255, 255, 255, 0.8);
+  border-style     : none;
+  background-color : transparent;
+  outline          : none;
+}
+
+input::-webkit-input-placeholder {
+  color : rgba(255, 255, 255, 0.45);
+}
+
+input[type='checkbox'] {
+  -webkit-appearance : none;
+  height             : 0px;
+  margin             : 0px;
+}
+
+input[type='checkbox']::after {
+  content          : ' ';
+  display          : inline-block;
+  width            : 15px;
+  height           : 15px;
+  padding          : 1px;
+  border-radius    : 2px;
+  background-color : black;
+  font-family      : 'FontAwesome';
+  cursor           : pointer;
+}
+
+input[type='checkbox']:checked::after {
+  content : '\f00c';
+}
+
+button {
+  width         : 100%;
+  padding       : 10px 10px;
+  color         : white;
+  border-style  : none;
+  border-radius : 4px;
+  outline       : none;
+  box-shadow    : 0 6px 9px rgba(50,50,93,.06),
+                  0 2px 5px rgba(0,0,0,.08);
+  font-size     : 19px;
+  line-height   : 1.25;
+  cursor        : pointer;
+}
+
+// Create all the styles.
+@each $colorName,
+      $color in $colors {
   @include color($colorName, map-get($color, normal), map-get($color, dark));
 }
