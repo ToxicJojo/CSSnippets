@@ -6,6 +6,7 @@ block description
 block samples
   for color in colors
     form(class=color) 
+      legend Personal
       .row
         input(type='text' placeholder='John Doe')
         label Name
@@ -13,3 +14,19 @@ block samples
         input(type='url' placeholder='www.example.com')
         label Website
         small.helperText Your personal or company website.
+      .row
+        input(type='tel' placeholder='+49 123 123')
+        label Phone
+        
+      legend Account
+      .row
+        input(type='email' placeholder='mail@example.com')
+        label E-Mail
+      .row
+        input(type='password' placeholder='Password')
+        label Password
+      .row.checkbox
+        label(for=`newsletter-material-${color}`) Newsletter
+        input(type='checkbox' id=`newsletter-material-${color}`)
+        small.helperText Sign up for the newsletter
+      button(type='button') Submit

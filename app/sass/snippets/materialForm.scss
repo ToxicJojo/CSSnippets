@@ -1,5 +1,21 @@
 @import '../variables';
 
+@mixin color($name, $lightColor, $darkColor) {
+  form.#{$name} {
+    input[type='checkbox']:checked::after {
+      background-color : $darkColor;
+      border-color: $darkColor;
+    }
+
+    button {
+      background-color : $lightColor;
+
+      &:active {
+        background : $darkColor;
+      }
+    }
+  }
+}
 
 form {
   margin: 20px;
@@ -8,14 +24,41 @@ form {
                   0 3px 6px rgba(0,0,0,.08);
 }
 
+legend {
+  margin-bottom: 25px;
+  margin-top: 25px;
+  text-align: left;
+  font-size: 18px;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
   margin-top: 36px;
+
+  &.checkbox {
+    align-items: center;
+
+    &:hover {
+      small.helperText {
+        visibility: visible;
+      }
+    }
+  }
+
+
+
+}
+
+label {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 input + label {
   position: absolute;
+  transform: translateY(-8px);
   font-size: 16px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.4);
@@ -25,20 +68,24 @@ input + label {
 }
 
 input:not(:placeholder-shown) + label {
-  transform: scale(0.8) translateY(-25px);
+  transform: scale(0.8) translateY(-30px);
 }
 
 input:focus + label {
-  transform: scale(0.8) translateY(-25px);
+  transform: scale(0.8) translateY(-30px);
   color: $primaryColor;
 }
 
 input {
+  height: 20px;
+  outline: none;
+}
+
+input:not([type='checkbox']) {
   padding-bottom: 8px;
   width: 100%;
   border-style: none;
   border-bottom: 1px solid;
-  outline: none;
   background-color: transparent;
 }
 
@@ -55,4 +102,53 @@ input:not(:focus)::-webkit-input-placeholder {
 small.helperText {
   padding-top: 8px;
   color: rgba(0, 0, 0, 0.55);
+  visibility: hidden;
+}
+
+input:not([type='checkbox']):focus ~ small.helperText {
+  visibility: visible;
+}
+
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  padding-left: 5px;
+  width: 60%;
+}
+
+input[type='checkbox']::after {
+  content: ' ';
+  display: inline-block;
+  width            : 15px;
+  height           : 15px;
+  padding          : 1px;
+  border-radius    : 2px;
+  border: 2px solid rgba(0, 0, 0, .45);
+  color: white;
+  font-family      : 'FontAwesome';
+  cursor           : pointer;
+}
+
+input[type='checkbox']:checked::after {
+  content: '\f00c';
+  background-color: black;
+}
+
+button {
+  border-style: none;
+  border-radius: 2px;
+  height: 32px;
+  padding: 6px 16px;
+  min-width: 88px;
+  color: white;
+
+  &:hover {
+    box-shadow    : 0 7px 14px rgba(50,50,93,.1),
+                    0 3px 6px rgba(0,0,0,.08);
+  }
+}
+
+
+@each $colorName,
+      $color in $colors {
+  @include color($colorName, map-get($color, normal), map-get($color, dark));
 }
