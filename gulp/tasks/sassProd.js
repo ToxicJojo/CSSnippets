@@ -5,10 +5,12 @@ const sass = require('gulp-sass');
 const gap = require('gulp-append-prepend');
 const tap = require('gulp-tap');
 const path = require('path');
+const autoprefixer = require('gulp-autoprefixer');
 
 module.exports = () => {
   gulp.src('app/sass/style.scss')
     .pipe(sass())
+    .pipe(autoprefixer())
     .pipe(cleanCSS())
     .pipe(gulp.dest('public/css'));
 
@@ -23,5 +25,6 @@ module.exports = () => {
     }))
     .pipe(gap.appendText('}'))
     .pipe(sass())
+    .pipe(autoprefixer())
     .pipe(gulp.dest('public/css/snippets'));
 };

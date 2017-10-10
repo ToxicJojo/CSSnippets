@@ -5,18 +5,21 @@ const sass = require('gulp-sass');
 const gap = require('gulp-append-prepend');
 const tap = require('gulp-tap');
 const path = require('path');
+const autoprefixer = require('gulp-autoprefixer');
 
 
 module.exports = () => {
   gulp.src('app/sass/style.scss')
     .pipe(sourcemaps.init())
     .pipe(sass())
+    .pipe(autoprefixer())
     .pipe(cleanCSS())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('public/css'));
 
   gulp.src('app/sass/snippets/**/*.scss')
     .pipe(sass())
+    .pipe(autoprefixer())
     .pipe(gulp.dest('public/css/intern'));
 
   /* We want to scope the css snippets. To do this we add put the wohle scss
@@ -30,5 +33,6 @@ module.exports = () => {
     }))
     .pipe(gap.appendText('}'))
     .pipe(sass())
+    .pipe(autoprefixer())
     .pipe(gulp.dest('public/css/snippets'));
 };
