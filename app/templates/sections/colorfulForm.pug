@@ -31,7 +31,7 @@ block samples
           label Password
           input(type='password' placeholder='Password')
         .row
-          label.checkbox(for='newsletter') Newsletter
-          input#newsletter(type='checkbox')
+          label.checkbox(for=`newsletter${color}`) Newsletter
+          input(type='checkbox' id=`newsletter${color}`)
             
       button(type='button') Submit
