@@ -1,3 +1,5 @@
+@import 'variables';
+
 $headingTextColor: #222;
 
 main {
@@ -34,6 +36,15 @@ section h1 i {
 section h1.anchor {
   margin-top: -$headerHeight;
   padding-top: $headerHeight;
+}
+code {
+  font-size: 15px;
+  background: #f5f5f5;
+  color: $secondaryColor;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 3px 6px;
+  margin: 0px 3px;
 }
 
 .samples {
