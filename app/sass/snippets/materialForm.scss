@@ -26,13 +26,14 @@ form {
 
 legend {
   margin-bottom: 25px;
-  margin-top: 25px;
+  margin-top: 35px;
   text-align: left;
   font-size: 18px;
 }
 
 .row {
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   margin-top: 36px;
 
@@ -53,15 +54,14 @@ legend {
 label {
   font-size: 16px;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.25);
 }
 
 input + label {
   position: absolute;
-  transform: translateY(-8px);
+  top : -5px;
   font-size: 16px;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.4);
   transition: 0.25s;
   transform-origin: 0;
   pointer-events: none;
@@ -138,6 +138,7 @@ button {
   border-radius: 2px;
   height: 32px;
   padding: 6px 16px;
+  margin-top: 20px;
   min-width: 88px;
   color: white;
 
