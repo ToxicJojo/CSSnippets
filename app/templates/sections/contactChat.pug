@@ -1,0 +1,62 @@
+extends ../shared/section.pug
+
+block description
+  p Description
+  
+block samples
+    .chat
+      .contacts
+        .row
+          input.search(type='text' placeholder='Search')
+          .fa.fa-search
+        .contact
+          img.avatar(src='http://placekitten.com/64/64')
+          .contact-info
+            span.name Musja
+            span.status
+              .indicator.online
+              | Online
+        .contact
+          img.avatar(src='http://placekitten.com/86/86')
+          .contact-info
+            span.name Mauli
+            span.status
+              .indicator.offline
+              | Offline
+        .contact
+          img.avatar(src='http://placekitten.com/42/42')
+          .contact-info
+            span.name Grizzly
+            span.status
+              .indicator.away
+              | Away
+        .contact
+          img.avatar(src='http://placekitten.com/90/90')
+          .contact-info
+            span.name Lilly
+            span.status
+              .indicator.busy
+              | Busy 
+
+      .conversation
+        .conversation-info
+          img.avatar(src='http://placekitten.com/64/64')
+          .column
+            span.name Musja
+            span.status Last seen 15 Minutes ago
+        .messages
+          .message.me
+            | What are you doing right now?
+
+          .message.you
+            | Hunting mice.
+
+          .message.me
+            | Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam veroluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+
+          .message.you
+            | Nya nya nya nya :3
+
+        .conversation-controls
+          textarea(placeholder='Type a message')
+          button(type='button') Send
